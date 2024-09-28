@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="shortcut icon" href="assets/img/favicon.webp" type="image/x-icon">
+</head>
+
+<body class="bg-gradient-to-br from-white via-emerald-100/50 to-white min-h-screen">
+    
+    <!-- ========== Menu de navegación========== -->
+    <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+        <nav class="mt-4 relative max-w-2xl w-full bg-white/90 border border-white/20 rounded-xl mx-2 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto">
+            <div class="px-4 md:px-0 flex justify-between items-center">
+                <!-- Logo -->
+                <div>
+                    <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none"
+                        href="" aria-label="Preline">
+                        <img src="./assets/img/2.webp" class="w-28 lg:w-40 md:w-32 h-auto" alt="">
+                    </a>
+                </div>
+                <!-- End Logo -->
+    
+                <div class="md:hidden">
+                    <!-- Toggle Button -->
+                    <button type="button"
+                        class="hs-collapse-toggle flex justify-center items-center size-6 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                        id="hs-navbar-header-floating-collapse" aria-expanded="false"
+                        aria-controls="hs-navbar-header-floating" aria-label="Toggle navigation"
+                        data-hs-collapse="#hs-navbar-header-floating">
+                        <svg class="hs-collapse-open:hidden shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" x2="21" y1="6" y2="6" />
+                            <line x1="3" x2="21" y1="12" y2="12" />
+                            <line x1="3" x2="21" y1="18" y2="18" />
+                        </svg>
+                        <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
+                    <!-- End Toggle Button -->
+                </div>
+            </div>
+    
+            <div id="hs-navbar-header-floating"
+                class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block"
+                aria-labelledby="hs-navbar-header-floating-collapse">
+                <div
+                    class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
+                    <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 text-gray-500 hover:text-gray-800 border-transparent focus:outline-none"
+                        href="./index.html" >Inicio</a>
+                    <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none"
+                        href="#">Torneo</a>
+                    <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 text-gray-800 focus:outline-none font-medium "
+                        href="./contacto.html" aria-current="page">Contacto</a>
+                    <div class="relative">
+                        <button id="searchIcon"
+                            class="px-4 text-gray-500 rounded-full hover:scale-105 transform transition duration-300 hover:text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </div>
+    
+                    <div id="searchModal"
+                        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+                        <div class="bg-white rounded-lg w-full max-w-md p-6 transform scale-95 transition-all duration-300">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="text-lg font-medium text-gray-800">¡Busca tu lugar favorito!</h2>
+                                <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+    
+                            <div class="relative">
+                                <input type="text" id="searchInput" placeholder="Buscar..."
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <div id="spinner" class="absolute right-3 top-3 hidden">
+                                    <div class="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-emerald-500">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <ul id="searchResults" class="mt-4 max-h-60 overflow-y-auto"></ul>
+    
+                            <p id="noResults" class="text-center text-gray-500 mt-4 hidden">No se encontraron resultados
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- ========== Final del menú de navegación ========== -->
+
+    <!-- Contact Us -->
+    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+    aria-hidden="true">
+    <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-300 to-teal-400 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+    </div>
+</div>
+    <div class=" max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div class="max-w-2xl lg:max-w-5xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-emerald-900 sm:text-4xl">
+                    Póngase en contacto con nosotros
+                </h1>
+                <p class="mt-1 text-gray-600">
+                    Nos encantaría hablar sobre cómo podemos ayudarle.
+                </p>
+            </div>
+
+            <div class="mt-12 grid items-center lg:grid-cols-2 gap-6 lg:gap-16">
+                <!-- Card -->
+                <div class="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-8">
+                    <h2 class="mb-8 text-xl font-semibold text-gray-800">
+                        Rellene el formulario
+                    </h2>
+
+                    <form>
+                        <div class="grid gap-4">
+                            <!-- Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="hs-firstname-contacts-1" class="sr-only">Nombre</label>
+                                    <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1"
+                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none"
+                                        placeholder="Nombre" required>
+                                </div>
+                                <div>
+                                    <label for="hs-lastname-contacts-1" class="sr-only">Apellidos</label>
+                                    <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1"
+                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none"
+                                        placeholder="Apellidos" required>
+                                </div>
+                            </div>
+                            <!-- End Grid -->
+
+                            <div>
+                                <label for="hs-email-contacts-1" class="sr-only">Correo Electrónico</label>
+                                <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1"
+                                    autocomplete="email"
+                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none"
+                                    placeholder="Correo Electrónico" required>
+                            </div>
+
+                            <div>
+                                <label for="hs-phone-number-1" class="sr-only">Número celular</label>
+                                <input type="text" name="hs-phone-number-1" id="hs-phone-number-1"
+                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none"
+                                    placeholder="Número celular">
+                            </div>
+
+                            <div>
+                                <label for="hs-about-contacts-1" class="sr-only">¿En que podemos ayudarte?</label>
+                                <textarea id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4"
+                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none0"
+                                    placeholder="¿En que podemos ayudarte?"></textarea>
+                            </div>
+                        </div>
+                        <!-- End Grid -->
+
+                        <div class="mt-4 grid">
+                            <button type="submit"
+                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-emerald-800 text-white hover:bg-emerald-950 focus:outline-none transition ease-in-out duration-300 disabled:opacity-50 disabled:pointer-events-none">Enviar mensaje</button>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <p class="text-sm text-gray-500">
+                                Le responderemos en 1-2 días hábiles.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Card -->
+
+                <div class="divide-y divide-gray-200 ">
+                    <!-- Icon Block -->
+                    <div class="flex gap-x-7 py-6">
+                        <svg class="shrink-0 size-6 mt-1.5 text-gray-800 "
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                            <path d="M12 17h.01" />
+                        </svg>
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800 ">¿Preguntas?</h3>
+                            <p class="mt-1 text-sm text-gray-500 ">Tenemos respuestas, resuelve tus dudas atravez de nuestra linea de WhatsApp</p>
+                            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800"
+                                href="#">
+                                Contactar via WhatsApp
+                                <svg class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                                    width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Icon Block -->
+
+                    <!-- Icon Block -->
+                    <div class="flex gap-x-7 py-6">
+                        <svg class="shrink-0 size-6 mt-1.5 text-gray-800 "
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                            <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                        </svg>
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800">Preguntas Frecuentes</h3>
+                            <p class="mt-1 text-sm text-gray-500">Busque en nuestras preguntas frecuentes para encontrar respuestas a todo lo que pueda preguntar.</p>
+                            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800"
+                                href="#">
+                                Visitar FAQ
+                                <svg class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                                    width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Icon Block -->
+
+                    <!-- Icon Block -->
+                    <div class=" flex gap-x-7 py-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                          </svg>
+                          
+                        <div class="grow">
+                            <h3 class="font-semibold text-gray-800">Torneo</h3>
+                            <p class="mt-1 text-sm text-gray-500">Tienes dudas o preguntas sobre nuestro torneo? Resuélvelas desde aquí</p>
+                            <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800"
+                                href="#">
+                                Preguntar
+                                <svg class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                                    width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Icon Block -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Us -->
+
+
+    <!-- FAQ -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <!-- Title -->
+    <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+      <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Your questions, answered</h2>
+      <p class="mt-1 text-gray-600">Answers to the most frequently asked questions.</p>
+    </div>
+    <!-- End Title -->
+  
+    <div class="max-w-2xl mx-auto">
+      <!-- Accordion -->
+      <div class="hs-accordion-group">
+        <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+            Can I cancel at anytime?
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+            <p class="text-gray-800">
+              Yes, you can cancel anytime no questions are asked while you cancel but we would highly appreciate if you will give us some feedback.
+            </p>
+          </div>
+        </div>
+  
+        <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6" id="hs-basic-with-title-and-arrow-stretched-heading-two">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two">
+            My team has credits. How do we use them?
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
+            <p class="text-gray-800">
+              Once your team signs up for a subscription plan. This is where we sit down, grab a cup of coffee and dial in the details.
+            </p>
+          </div>
+        </div>
+  
+        <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6" id="hs-basic-with-title-and-arrow-stretched-heading-three">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
+            How does Preline's pricing work?
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
+            <p class="text-gray-800">
+              Our subscriptions are tiered. Understanding the task at hand and ironing out the wrinkles is key.
+            </p>
+          </div>
+        </div>
+  
+        <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6" id="hs-basic-with-title-and-arrow-stretched-heading-four">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-four">
+            How secure is Preline?
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-four">
+            <p class="text-gray-800">
+              Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.
+            </p>
+          </div>
+        </div>
+  
+        <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6" id="hs-basic-with-title-and-arrow-stretched-heading-five">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-five">
+            How do I get access to a theme I purchased?
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-five" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-five">
+            <p class="text-gray-800">
+              If you lose the link for a theme you purchased, don't panic! We've got you covered. You can login to your account, tap your avatar in the upper right corner, and tap Purchases. If you didn't create a login or can't remember the information, you can use our handy Redownload page, just remember to use the same email you originally made your purchases with.
+            </p>
+          </div>
+        </div>
+  
+        <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6" id="hs-basic-with-title-and-arrow-stretched-heading-six">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-six">
+            Upgrade License Type
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-six" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-six">
+            <p class="text-gray-800">
+              There may be times when you need to upgrade your license from the original type you purchased and we have a solution that ensures you can apply your original purchase cost to the new license purchase.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End Accordion -->
+    </div>
+  </div>
+  <!-- End FAQ -->
+
+
+
+
+    <footer class="bg-emerald-950 rounded-xl shadow m-4">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between text-center">
+            <span class="text-sm text-gray-300/70 sm:text-center">Para la comodidad del pueblo.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium justify-center text-gray-300/70 sm:mt-0">
+                <li>
+                    <a href="./index.html" class="hover:underline me-4 md:me-6">Inicio</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Torneo</a>
+                </li>
+                <li>
+                    <a href="./contact.html" class="hover:underline me-4 md:me-6">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="./assets/js/preline.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comidas rapidas</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="shortcut icon" href="assets/img/favicon.webp" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="ml-5 mt-5 flex" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+            <li class="inline-flex items-center">
+                <a href="./index.html"
+                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-emerald-600">
+                    <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                    </svg>
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
+                    </svg>
+                    <a href="./comidas.html"
+                        class="ms-1 text-sm font-medium text-gray-700 hover:text-emerald-600 md:ms-2">Comidas</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
+                    </svg>
+                    <a href="#" class="ms-1 text-sm font-medium text-gray-700 hover:text-emerald-600 md:ms-2">Comidas
+                        Rapidas</a>
+                </div>
+            </li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <div
+        class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/squared-bg-element.svg')] before:bg-no-repeat before:bg-top before:size-full before:-z-[1] before:transform before:-translate-x-1/2">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+            <!-- Announcement Banner -->
+            <!-- End Announcement Banner -->
+
+            <!-- Title -->
+            <div class="mt-5 text-center mx-auto">
+                <h1 class="block font-bold text-emerald-500 opacity-50 text-3xl md:text-4xl lg:text-5xl">
+                    ¡Comidas Rápidas!
+                </h1>
+            </div>
+            <!-- End Title -->
+
+            <div class="mt-5 max-w-3xl text-center mx-auto">
+                <p class="text-lg text-gray-600 md:text-sm">Aquí están todos los lugares de comidas rápidas, de los cuales pudimos recopilar información.</p>
+            </div>
+            <!-- End Buttons -->
+        </div>
+    </div>
+    <!-- End Hero -->
+<!-- Card Grid -->
+<div id="cardGrid" class="py-12 px-6 grid grid-cols-1 gap-2 xs:grid-cols-2 sm:gap-3 sm:grid-cols-3 md:gap-2 md:grid-cols-4 lg:gap-3 lg:grid-cols-4">
+    <!-- Las tarjetas se insertarán aquí dinámicamente -->
+</div>
+
+<!-- Pagination -->
+<nav class="flex items-center justify-center gap-x-1 mb-10" aria-label="Pagination">
+    <button id="prevButton" type="button" class="min-h-[38px] min-w-[38px] py-2 px-2.5 inline-flex justify-center items-center gap-x-1.5 text-sm rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" aria-label="Previous">
+        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        <span>Anterior</span>
+    </button>
+    <div id="pageNumbers" class="flex items-center gap-x-1">
+        <!-- Los números de página se insertarán aquí dinámicamente -->
+    </div>
+    <button id="nextButton" type="button" class="min-h-[38px] min-w-[38px] py-2 px-2.5 inline-flex justify-center items-center gap-x-1.5 text-sm rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" aria-label="Next">
+        <span>Siguiente</span>
+        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"></path>
+        </svg>
+    </button>
+    <!-- End Pagination -->
+    <script src="./assets/js/preline.js"></script>
+        <script>
+        // Datos de ejemplo para las tarjetas (amplía esto con más datos para las páginas adicionales)
+        const cardData = [
+            { name: "Callejero - Social Food", description: "Auténticos birria tacos en Urabá", location: "B/ Ortiz", tag: "@somoscallejero", image: "assets/img/callejero-log.webp" },
+            { name: "El barril de troy", description: "Chicharrones y costillas al barril", location: "B/ Ortiz", tag: "Desde $10.000", image: "./assets/img/elbarril.webp" },
+            { name: "El sabor callejero - Food", description: "Hamburguesas, salchipapas, picadas", location: "B/ San Fernando", tag: "@saborcallejero", image: "assets/img/saborcallejero.webp" },
+            { name: "Los chorizuos del pueblo", description: "Chorizos asados al carbón", location: "B/ San Fernando", tag: "Amplia variedad", image: "assets/img/los-chorizuos-del-pueblo.webp" },
+            { name: "Delimosnter", description: "La diferencia en picadas", location: "B/ Obrero", tag: "@Delimosnter", image: "assets/img/dalimos.webp" },
+            { name: "Las hamburguesas del pueblo", description: "Con muchísimo queso", location: "AV Alfono Lopez", tag: "Recomendadas", image: "assets/img/lashamburguesas.webp" },
+            { name: "Wabi", description: "Healthyfood", location: "B/ Los almendros", tag: "1:00pm - 09:30pm", image: "assets/img/wabi-logo.webp" },
+            { name: "Delicias - Sarko Viral", description: "\"La casa del verdadero placer\"", location: "B/ Policarpa", tag: "Desde 11.000", image: "assets/img/sarkoviral.webp" },
+            { name: "Cakareos", description: "Alitas, cervezas artesanales", location: "B/ Ortiz", tag: "@cakareos_gurmet", image: "assets/img/cakareos-logo (1).webp" },
+            { name: "Bocados", description: "¡Sabores que conquistan!", location: "B/ Ortiz", tag: "@bocados_apartado", image: "assets/img/bocados-logo.webp" },
+            // Agrega más objetos aquí para las páginas adicionales
+        ];
+
+        const itemsPerPage = 12;
+        let currentPage = 1;
+
+        function createCardElement(card) {
+            return `
+                <a class="group flex flex-col focus:outline-none" href="#">
+                    <div class="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl">
+                        <img class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
+                            src="${card.image}" alt="${card.name}">
+                    </div>
+                    <div class="pt-4">
+                        <h3 class="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-emerald-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100">
+                            ${card.name}
+                        </h3>
+                        <p class="mt-1 text-gray-600">
+                            ${card.description}
+                        </p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl">
+                                ${card.location}
+                            </span>
+                            <span class="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl">
+                                ${card.tag}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function displayCards(page) {
+            const cardGrid = document.getElementById('cardGrid');
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const cardsToDisplay = cardData.slice(startIndex, endIndex);
+
+            cardGrid.innerHTML = cardsToDisplay.map(createCardElement).join('');
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(cardData.length / itemsPerPage);
+            const pageNumbers = document.getElementById('pageNumbers');
+            pageNumbers.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.classList.add('min-h-[38px]', 'min-w-[38px]', 'flex', 'justify-center', 'items-center', 'py-2', 'px-3', 'text-sm', 'rounded-lg', 'focus:outline-none');
+                
+                if (i === currentPage) {
+                    button.classList.add('bg-gray-200', 'text-gray-800');
+                } else {
+                    button.classList.add('text-gray-800', 'hover:bg-gray-100');
+                }
+
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    displayCards(currentPage);
+                    updatePagination();
+                });
+
+                pageNumbers.appendChild(button);
+            }
+
+            document.getElementById('prevButton').disabled = currentPage === 1;
+            document.getElementById('nextButton').disabled = currentPage === totalPages;
+        }
+
+        document.getElementById('prevButton').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayCards(currentPage);
+                updatePagination();
+            }
+        });
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            const totalPages = Math.ceil(cardData.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayCards(currentPage);
+                updatePagination();
+            }
+        });
+
+        // Inicializar la página
+        displayCards(currentPage);
+        updatePagination();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+.gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 0.75rem;
+    /* Equivalente a rounded-xl en Tailwind */
+  }
+
+  .aspect-185-123 {
+    position: relative;
+    width: 100%;
+    padding-top: 66.49%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-280-421 {
+    position: relative;
+    width: 100%;
+    padding-top: 150.22%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-1-1 {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-341-273 {
+    position: relative;
+    width: 100%;
+    padding-top: 124.90%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-2-3 {
+    position: relative;
+    width: 100%;
+    padding-top: 150%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-133 {
+    position: relative;
+    width: 100%;
+    padding-top: 133%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-149 {
+    position: relative;
+    width: 100%;
+    padding-top: 149.48%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }
+
+  .aspect-124 {
+    position: relative;
+    width: 100%;
+    padding-top: 124.30%;
+    /* Esto crea un contenedor con una relación de aspecto 4:3 */
+    overflow: hidden;
+  }

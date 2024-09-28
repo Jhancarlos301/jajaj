@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios Profesionales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 min-h-screen flex justify-center items-center">
+
+    <div class="w-full max-w-2xl bg-white bg-opacity-80 shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-900">Deja un Comentario</h2>
+        
+        <!-- Formulario de Comentario -->
+        <div id="commentForm" class="mb-6">
+            <div class="flex mb-4">
+                <input type="text" id="userName" placeholder="Tu Nombre" class="bg-gray-100 p-3 rounded-l-lg flex-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <input type="email" id="userEmail" placeholder="Tu Correo" class="bg-gray-100 p-3 rounded-r-lg flex-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300">
+            </div>
+            <textarea id="userComment" placeholder="Escribe tu comentario aquí..." class="bg-gray-100 p-3 rounded-lg w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 mb-4"></textarea>
+            <button onclick="addComment()" class="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-purple-500 hover:to-pink-400 text-white p-3 rounded-lg w-full">Publicar Comentario</button>
+        </div>
+
+        <!-- Sección de Comentarios -->
+        <div id="commentSection">
+            <!-- Aquí aparecerán los comentarios -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+    <script>
+        // Variables para reacciones guardadas en localStorage
+let reactions = JSON.parse(localStorage.getItem('reactions')) || { like: 0, love: 0, funny: 0 };
+let userReacted = JSON.parse(localStorage.getItem('userReacted')) || false;
+
+// Guardar reacciones al recargar
+document.getElementById('likeCount').innerText = reactions.like;
+document.getElementById('loveCount').innerText = reactions.love;
+document.getElementById('funnyCount').innerText = reactions.funny;
+
+// Función para manejar reacciones, solo permite una por dispositivo
+function handleReaction(reaction) {
+    if (userReacted) {
+        alert("Ya has reaccionado.");
+        return;
+    }
+
+    if (reaction === 'me-gusta') reactions.like++;
+    if (reaction === 'me-encanta') reactions.love++;
+    if (reaction === 'me-divierte') reactions.funny++;
+
+    localStorage.setItem('reactions', JSON.stringify(reactions));
+    localStorage.setItem('userReacted', true);
+
+    updateReactionUI();
+}
+
+// Actualizar el UI de las reacciones
+function updateReactionUI() {
+    document.getElementById('likeCount').innerText = reactions.like;
+    document.getElementById('loveCount').innerText = reactions.love;
+    document.getElementById('funnyCount').innerText = reactions.funny;
+}
+
+// Asignar eventos a los botones de reacción
+document.querySelectorAll('.reaction').forEach(el => {
+    el.addEventListener('click', (e) => {
+        const reaction = e.currentTarget.getAttribute('data-reaction');
+        handleReaction(reaction);
+    });
+});
+
+// Guardar comentarios en localStorage
+let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+// Mostrar los comentarios guardados
+function displayComments() {
+    const commentSection = document.getElementById('commentSection');
+    commentSection.innerHTML = '';
+
+    comments.forEach((comment, index) => {
+        commentSection.innerHTML += `
+            <div class="p-2 bg-gray-100 rounded mb-2">
+                <strong>${comment.name}</strong>: ${comment.comment}
+                <div>
+                    <button onclick="editComment(${index})" class="text-blue-500">Editar</button>
+                    <button onclick="deleteComment(${index})" class="text-red-500">Eliminar</button>
+                    <button onclick="replyComment(${index})" class="text-green-500">Responder</button>
+                </div>
+                ${comment.replies ? displayReplies(comment.replies) : ''}
+            </div>
+        `;
+    });
+}
+
+// Mostrar respuestas
+function displayReplies(replies) {
+    let replyHTML = '<div class="ml-4">';
+    replies.forEach(reply => {
+        replyHTML += `<div class="p-2 bg-gray-50 rounded mb-2"><strong>${reply.name}</strong>: ${reply.comment}</div>`;
+    });
+    replyHTML += '</div>';
+    return replyHTML;
+}
+
+// Añadir comentario
+function addComment() {
+    const userName = document.getElementById('userName').value;
+    const userComment = document.getElementById('userComment').value;
+
+    if (userName && userComment) {
+        comments.push({ name: userName, comment: userComment, replies: [] });
+        localStorage.setItem('comments', JSON.stringify(comments));
+        displayComments();
+        document.getElementById('userComment').value = '';
+    } else {
+        alert('Por favor, ingresa un nombre y un comentario.');
+    }
+}
+
+// Editar comentario
+function editComment(index) {
+    const newComment = prompt("Editar comentario:", comments[index].comment);
+    if (newComment !== null) {
+        comments[index].comment = newComment;
+        localStorage.setItem('comments', JSON.stringify(comments));
+        displayComments();
+    }
+}
+
+// Eliminar comentario
+function deleteComment(index) {
+    comments.splice(index, 1);
+    localStorage.setItem('comments', JSON.stringify(comments));
+    displayComments();
+}
+
+// Responder a un comentario
+function replyComment(index) {
+    const userName = prompt("Tu nombre:");
+    const replyComment = prompt("Tu respuesta:");
+    if (userName && replyComment) {
+        comments[index].replies.push({ name: userName, comment: replyComment });
+        localStorage.setItem('comments', JSON.stringify(comments));
+        displayComments();
+    }
+}
+
+// Mostrar comentarios al cargar la página
+displayComments();
+
+    </script>
+</body>
+</html>
